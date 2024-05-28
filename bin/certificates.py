@@ -57,7 +57,7 @@ os.environ['path'] += r'C:\Program Files\Inkscape\bin'
 import cairosvg
 
 
-DATE_FORMAT = '%D'
+DATE_FORMAT = '%D' #This is the format which Windows likes
 
 
 def main():
