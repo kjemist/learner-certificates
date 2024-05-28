@@ -20,6 +20,10 @@ python .\bin\certificates.py -r .\templates\ -c .\attendance_names.csv
 
 6. The pdfs should be in templates/swc_attendance/
 
+
+------------------------
+Below is text from original repo
+
 # Certificates for The Carpentries
 
 
