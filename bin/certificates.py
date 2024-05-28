@@ -121,12 +121,10 @@ def process_csv(args):
     '''Process a CSV file.'''
 
     with open(args.csv_file, 'r', encoding='UTF-8') as raw: # in Windows+Python, UTF-8 is not standard encoding for some reason
-        print(raw)
         reader = csv.reader(raw)
         for row in reader:
             check(len(row) == 6, 'Badly-formatted row in CSV: {0}'.format(row))
             badge_type, args.params['instructor'], user_id, args.params['name'], email, args.params['date'] = row
-            print("name:", args.params['name'])
             if '-' in args.params['date']:
                 d = time.strptime(args.params['date'], '%Y-%m-%d')
                 d = date(*d[:3])
