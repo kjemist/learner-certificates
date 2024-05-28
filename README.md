@@ -4,7 +4,7 @@ Modifications from 2024:
 
 # How-to (from SWC Bergen 2024, on Windows 10)
 
-:::
+
 1. Make sure cairosvg is installed. Even if pip is succesful in installing these files, you might be unable to retrieve the library. Follow the steps [from this Stack Overflow post](https://stackoverflow.com/a/60220855/11598009). If you have Inkscape installed on your computer (I did in May 2024), the dlls should be under "C:\Program Files\Inkscape\bin". If they are in a different folder, you will need to edit the Python script to reflect the location of this (line 56, see the Stack overflow question)
 2. clone this repo (git clone git@github.com:kjemist/learner-certificates.git)
 3. create a folder named 'templates'
@@ -17,8 +17,6 @@ with rows of attendee-names (no commas between rows). The email is not used in t
 python .\bin\certificates.py -r .\templates\ -c .\attendance_names.csv
 '''
 6. The pdfs should be in templates/swc_attendance/
-
-:::
 
 # Certificates for The Carpentries
 
