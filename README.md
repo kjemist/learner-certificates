@@ -12,6 +12,7 @@ Modifications from 2024:
 > swc-attendance,Grace Hopper,turing_alan,Alan Turing,alan@turing.org,2016-01-27
 > 
 with rows of attendee-names (no commas between rows). The email is not used in the certificate pdf, so the placeholder alan@turing.com can be used. The first parameter must match the template name (swc-attendance), and the script will have an easier time finding this if it is placed in an appropiate subfolder (see step 3)
+
 5. run
 '''
 python .\bin\certificates.py -r .\templates\ -c .\attendance_names.csv
