@@ -17,7 +17,7 @@ The first column is necessary for the template, the second is the instructor nam
 python .\bin\certificates.py -r .\templates\ -c .\attendance_names.csv
 ```
 
-6. The pdfs should be in templates/swc_attendance/
+5. The pdfs should be in templates/swc_attendance/
 
 
 ------------------------
