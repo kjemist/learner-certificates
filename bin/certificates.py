@@ -50,6 +50,7 @@ import csv
 import tempfile
 import subprocess
 import unicodedata
+import warnings
 from optparse import OptionParser
 import time
 from datetime import date
@@ -57,11 +58,13 @@ os.environ['path'] += r'C:\Program Files\Inkscape\bin'
 import cairosvg
 
 
-DATE_FORMAT = '%D' #This is the format which Windows likes
+DATE_FORMAT = '%d.%m.%Y' #This is the format which Windows likes
 
 
 def main():
     args = parse_args()
+    print("######### ARGS ############")
+    print(args)
     if args.csv_file:
         process_csv(args)
     else:
@@ -121,8 +124,10 @@ def process_csv(args):
     '''Process a CSV file.'''
 
     with open(args.csv_file, 'r', encoding='UTF-8') as raw: # in Windows+Python, UTF-8 is not standard encoding for some reason
-        reader = csv.reader(raw)
+        reader = csv.reader(raw, skipinitialspace=True)
         for row in reader:
+            if row[0] != "swc-attendance":
+                warnings.warn("First column entry is written as:", row[0], ". Is this a typo?")
             check(len(row) == 6, 'Badly-formatted row in CSV: {0}'.format(row))
             badge_type, args.params['instructor'], user_id, args.params['name'], email, args.params['date'] = row
             if '-' in args.params['date']:
