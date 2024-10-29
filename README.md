@@ -10,9 +10,8 @@ Modifications from 2024:
 3. Create a csv-file called 'attendance_names.csv', and add rows in the following style:
 > swc-attendance,Instructor Name,learner_name,Learner Name,alan@turing.org,2016-01-27
 >
-The first column is necessary for the template, the second is the instructor name (e.g "Name1 Namesen1"), then the output file name ("name2_namesen2"), then the learner name ("Name2 Namesen"), email (of whoever, will not be used), then date in the format YYYY_MM_DD.
-with rows of attendee-names (no commas between rows). The email is not used in the certificate pdf, so the placeholder alan@turing.com can be used. The first parameter must match the template name (swc-attendance), and the script will have an easier time finding this if it is placed in an appropiate subfolder named "templates"
-
+The first column is necessary for the template, the second is the instructor name (e.g "Name1 Namesen1"), then the output file name ("name2_namesen2"), then the learner name ("Name2 Namesen"), email (of whoever, will not be used), then date in the format YYYY_MM_DD. Make sure the file "swc-attendance.svg" is in the folder "templates".
+ma
 5. run
 ```
 python .\bin\certificates.py -r .\templates\ -c .\attendance_names.csv
