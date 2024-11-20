@@ -16,6 +16,7 @@ Modifications from 2024:
 **or**
 
 use the template attendance-template.csv and fill in the missing values.
+
 The first column is necessary for the template and is kept same for all entries, the second is the instructor name (e.g "Name1 Namesen1"), then the output file name (usually styled as "name2_namesen2"), then the learner name ("Name2 Namesen"), email (of whoever, will not be used), then date in the format YYYY_MM_DD. Make sure the file "swc-attendance.svg" is in the folder "templates".
 
 4. run
