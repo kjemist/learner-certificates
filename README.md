@@ -10,7 +10,8 @@ Modifications from 2024:
 1. Make sure cairosvg is installed. Even if pip is succesful in installing these files, you might be unable to retrieve the library. Follow the steps [from this Stack Overflow post](https://stackoverflow.com/a/60220855/11598009). If you have Inkscape installed on your computer (I did in May 2024), the dlls should be under "C:\Program Files\Inkscape\bin". If they are in a different folder, you will need to edit the Python script to reflect the location of this (line 56, see the Stack overflow question). The script 'certificates.py' in this repo has this line added to work with my computer.
 2. clone this repo (git clone git@github.com:kjemist/learner-certificates.git) 
 3. Create a csv-file called 'attendance_names.csv', and add rows in the following style:
-> swc-attendance,<Instructor Name>,<file_name>,<learner name>,<email>,<YYYY-MM-YY>
+   
+> `swc-attendance,<Instructor Name>,<file_name>,<learner name>,<email/>,<YYYY-MM-YY>`
 
 **or**
 
