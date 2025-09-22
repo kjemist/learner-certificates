@@ -89,7 +89,8 @@ def parse_args():
                       default=None, dest='user_id', help='User ID')
     parser.add_option('-c', '--csv',
                       default=None, dest='csv_file', help='CSV file')
-
+    parser.add_option('-f', '--file_name', action = "store_true",
+                      default="store_false", dest='file_name', help='If specified, the file name will be generated from email address in CSV file. If not specified, the file name will be taken from the CSV file')
     args, extras = parser.parse_args()
     check(args.root_dir is not None, 'Must specify root directory')
     msg = 'Must specify either CSV file or both root directory and user ID'
@@ -127,8 +128,15 @@ def process_csv(args):
         reader = csv.reader(raw, skipinitialspace=True)
         for row in reader:
             if row[0] != "swc-attendance":
-                warnings.warn("First column entry is written as:", row[0], ". Is this a typo?")
-            check(len(row) == 6, 'Badly-formatted row in CSV: {0}'.format(row))
+                warnings.warn("First column entry is written as:", row[0], ", expected 'swc-attendance'. Is this a typo?")
+            if len(row) == 5 and args.file_name is not None:
+                print("File name will be generated from email address:", row[3])
+                row.insert(2, re.sub(r'[^a-zA-Z0-9_-]', '_', row[3].split('@')[0]))
+            if len(row) != 6:
+                print("Expected 6 columns, got {0}: {1}".format(len(row), row), file=sys.stderr)
+                if len(row) == 5:
+                    print("Is -f option missing?", file=sys.stderr)
+                sys.exit(1)
             badge_type, args.params['instructor'], user_id, args.params['name'], email, args.params['date'] = row
             if '-' in args.params['date']:
                 d = time.strptime(args.params['date'], '%Y-%m-%d')
