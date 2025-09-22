@@ -15,6 +15,11 @@ Modifications from 2024:
    
 > `swc-attendance,<Instructor Name>,<file_name>,<learner name>,<email/>,<YYYY-MM-YY>`
 
+or, if you wish to autogenerate the file name from the email addresses:
+
+> `swc-attendance,<Instructor Name>,<learner name>,<email/>,<YYYY-MM-YY>`
+
+
 **or**
 
 use the template attendance-template.csv and fill in the missing values.
@@ -25,6 +30,14 @@ The first column is necessary for the template and is kept same for all entries,
 ```
 python .\bin\certificates.py -r .\templates\ -c .\attendance_names.csv
 ```
+
+**or** 
+
+```
+python .\bin\certificates.py -r .\templates\ -c .\attendance_names.csv -f
+```
+
+if you wish to autogenerate file names from the email column
 
 5. The pdfs should be in templates/swc_attendance/
 
