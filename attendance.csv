@@ -1,0 +1,2 @@
+# leave the filename column empty and use option -f if you wish to generate filenames from email addresses
+swc-attendance,<Instructor Name>, <filename>, <Learner Name>,<email>,<YYYY-MM-DD>
